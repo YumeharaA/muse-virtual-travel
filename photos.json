@@ -1,16 +1,16 @@
 {
   "latest": {
     "background": "generated",
-    "background_source": "AI-generated Momijidani Park on Miyajima at dusk during the maple light-up, red Momiji Bridge over a stream, lanterns and illuminated maple trees, MUSE pausing on the bridge, face pasted from the master image (inspired by the location; not a Google Street View image)",
+    "background_source": "AI-generated Momijidani Park on Miyajima at night during the maple light-up, red Momiji Bridge over a stream, lanterns and illuminated maple trees, MUSE by the stream looking up at the maple leaves, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
     "city": "廿日市市",
-    "comment": "紅葉谷公園のライトアップ、真っ赤なもみじと提灯のあかりがきれいだったよ。赤い紅葉橋の上でひと休み、夕方の宮島は静かで特別な時間だった。",
+    "comment": "川辺に立って、ライトアップされた真っ赤なもみじを見上げたよ。提灯のあかりと紅葉に包まれて、夜の紅葉谷公園は昼とは違う顔を見せてくれた。",
     "country": "日本",
-    "date": "2026-11-21T18:30:00+09:00",
+    "date": "2026-11-21T21:28:00+09:00",
     "heading": 90,
     "latitude": 34.2974,
     "location": "宮島・紅葉谷公園",
     "longitude": 132.3157,
-    "photo": "photos/muse-miyajima-01.jpg"
+    "photo": "photos/muse-miyajima-02.jpg"
   },
   "photos": [
     {
@@ -194,6 +194,19 @@
       "location": "宮島・紅葉谷公園",
       "longitude": 132.3157,
       "photo": "photos/muse-miyajima-01.jpg"
+    },
+    {
+      "background": "generated",
+      "background_source": "AI-generated Momijidani Park on Miyajima at night during the maple light-up, red Momiji Bridge over a stream, lanterns and illuminated maple trees, MUSE by the stream looking up at the maple leaves, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+      "city": "廿日市市",
+      "comment": "川辺に立って、ライトアップされた真っ赤なもみじを見上げたよ。提灯のあかりと紅葉に包まれて、夜の紅葉谷公園は昼とは違う顔を見せてくれた。",
+      "country": "日本",
+      "date": "2026-11-21T21:28:00+09:00",
+      "heading": 90,
+      "latitude": 34.2974,
+      "location": "宮島・紅葉谷公園",
+      "longitude": 132.3157,
+      "photo": "photos/muse-miyajima-02.jpg"
     }
   ]
 }
