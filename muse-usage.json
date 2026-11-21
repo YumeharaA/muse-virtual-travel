@@ -2,8 +2,8 @@
   "service": "Muse",
   "plan": "free",
   "weekly": {
-    "used_percent": 14,
-    "left_percent": 86,
+    "used_percent": 15,
+    "left_percent": 85,
     "resets_at": "2026-11-28T09:55:00+09:00",
     "resets_in_days": 7,
     "resets_label": "Resets in 7日"
@@ -12,6 +12,6 @@
     "used_percent": 0,
     "left": "1B tokens left"
   },
-  "updated_at": "2026-11-21T23:51:31+09:00",
-  "updated_label": "Updated 11/21 23:51"
+  "updated_at": "2026-11-22T00:06:30+09:00",
+  "updated_label": "Updated 11/22 00:06"
 }
