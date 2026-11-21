@@ -1,16 +1,16 @@
 {
   "latest": {
     "background": "generated",
-    "background_source": "AI-generated Momijidani Park on Miyajima at night during the maple light-up, red Momiji Bridge over a stream, lanterns and illuminated maple trees, MUSE by the stream looking up at the maple leaves, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
-    "city": "廿日市市",
-    "comment": "川辺に立って、ライトアップされた真っ赤なもみじを見上げたよ。提灯のあかりと紅葉に包まれて、夜の紅葉谷公園は昼とは違う顔を見せてくれた。",
+    "background_source": "AI-generated Korankei valley in late November, red Taigetsu-kyo bridge over the Tomoe River, red maple trees at peak colour, MUSE walking along the riverside path looking up at the maples, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+    "city": "豊田市",
+    "comment": "巴川沿いの道を歩いて、真っ赤なもみじを見上げたよ。赤い待月橋と紅葉のトンネル、11月下旬の香嵐渓はまさに見頃だった。",
     "country": "日本",
-    "date": "2026-11-21T21:28:00+09:00",
+    "date": "2026-11-22T08:20:00+09:00",
     "heading": 90,
-    "latitude": 34.2974,
-    "location": "宮島・紅葉谷公園",
-    "longitude": 132.3157,
-    "photo": "photos/muse-miyajima-02.jpg"
+    "latitude": 35.1417,
+    "location": "香嵐渓",
+    "longitude": 137.3183,
+    "photo": "photos/muse-korankei-01.jpg"
   },
   "photos": [
     {
@@ -207,6 +207,19 @@
       "location": "宮島・紅葉谷公園",
       "longitude": 132.3157,
       "photo": "photos/muse-miyajima-02.jpg"
+    },
+    {
+      "background": "generated",
+      "background_source": "AI-generated Korankei valley in late November, red Taigetsu-kyo bridge over the Tomoe River, red maple trees at peak colour, MUSE walking along the riverside path looking up at the maples, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+      "city": "豊田市",
+      "comment": "巴川沿いの道を歩いて、真っ赤なもみじを見上げたよ。赤い待月橋と紅葉のトンネル、11月下旬の香嵐渓はまさに見頃だった。",
+      "country": "日本",
+      "date": "2026-11-22T08:20:00+09:00",
+      "heading": 90,
+      "latitude": 35.1417,
+      "location": "香嵐渓",
+      "longitude": 137.3183,
+      "photo": "photos/muse-korankei-01.jpg"
     }
   ]
 }
