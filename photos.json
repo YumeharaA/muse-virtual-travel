@@ -1,16 +1,16 @@
 {
   "latest": {
     "background": "generated",
-    "background_source": "AI-generated Kenrokuen Garden at night during the autumn maple light-up, Kotoji stone lantern and snow-rope-wrapped Karasaki pine by Kasumiga-ike pond, lantern light reflecting on the water, MUSE pausing on the bridge looking up at the illuminated red maples, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
-    "city": "金沢市",
-    "comment": "霞ヶ池の橋の欄干にもたれて、ライトアップされた真っ赤なもみじを見上げたよ。徽軫灯籠と雪吊りの松、池に映る灯り——11月22日の今夜だけの兼六園だった。",
+    "background_source": "AI-generated Meiji Jingu Gaien ginkgo avenue in late November, golden tunnel of 146 ginkgo trees with the Meiji Memorial Picture Gallery at the far end, morning light and a carpet of fallen golden leaves, MUSE walking along the avenue holding a ginkgo leaf and looking up at the canopy, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+    "city": "港区",
+    "comment": "金色のトンネルを歩いて、ひらりと落ちてきたイチョウの葉を一枚。並木の向こうに聖徳記念絵画館、足元は黄金のじゅうたん——11月23日の朝の外苑だった。",
     "country": "日本",
-    "date": "2026-11-22T18:25:00+09:00",
+    "date": "2026-11-23T08:25:00+09:00",
     "heading": 90,
-    "latitude": 36.562,
-    "location": "兼六園",
-    "longitude": 136.6626,
-    "photo": "photos/muse-kenrokuen-01.jpg"
+    "latitude": 35.673,
+    "location": "明治神宮外苑いちょう並木",
+    "longitude": 139.7204,
+    "photo": "photos/muse-gaien-ginkgo-01.jpg"
   },
   "photos": [
     {
@@ -233,6 +233,19 @@
       "location": "兼六園",
       "longitude": 136.6626,
       "photo": "photos/muse-kenrokuen-01.jpg"
+    },
+    {
+      "background": "generated",
+      "background_source": "AI-generated Meiji Jingu Gaien ginkgo avenue in late November, golden tunnel of 146 ginkgo trees with the Meiji Memorial Picture Gallery at the far end, morning light and a carpet of fallen golden leaves, MUSE walking along the avenue holding a ginkgo leaf and looking up at the canopy, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+      "city": "港区",
+      "comment": "金色のトンネルを歩いて、ひらりと落ちてきたイチョウの葉を一枚。並木の向こうに聖徳記念絵画館、足元は黄金のじゅうたん——11月23日の朝の外苑だった。",
+      "country": "日本",
+      "date": "2026-11-23T08:25:00+09:00",
+      "heading": 90,
+      "latitude": 35.673,
+      "location": "明治神宮外苑いちょう並木",
+      "longitude": 139.7204,
+      "photo": "photos/muse-gaien-ginkgo-01.jpg"
     }
   ]
 }
