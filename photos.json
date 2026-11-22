@@ -1,16 +1,16 @@
 {
   "latest": {
     "background": "generated",
-    "background_source": "AI-generated Korankei valley in late November, red Taigetsu-kyo bridge over the Tomoe River, red maple trees at peak colour, MUSE walking along the riverside path looking up at the maples, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
-    "city": "豊田市",
-    "comment": "巴川沿いの道を歩いて、真っ赤なもみじを見上げたよ。赤い待月橋と紅葉のトンネル、11月下旬の香嵐渓はまさに見頃だった。",
+    "background_source": "AI-generated Kenrokuen Garden at night during the autumn maple light-up, Kotoji stone lantern and snow-rope-wrapped Karasaki pine by Kasumiga-ike pond, lantern light reflecting on the water, MUSE pausing on the bridge looking up at the illuminated red maples, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+    "city": "金沢市",
+    "comment": "霞ヶ池の橋の欄干にもたれて、ライトアップされた真っ赤なもみじを見上げたよ。徽軫灯籠と雪吊りの松、池に映る灯り——11月22日の今夜だけの兼六園だった。",
     "country": "日本",
-    "date": "2026-11-22T08:20:00+09:00",
+    "date": "2026-11-22T18:25:00+09:00",
     "heading": 90,
-    "latitude": 35.1417,
-    "location": "香嵐渓",
-    "longitude": 137.3183,
-    "photo": "photos/muse-korankei-01.jpg"
+    "latitude": 36.562,
+    "location": "兼六園",
+    "longitude": 136.6626,
+    "photo": "photos/muse-kenrokuen-01.jpg"
   },
   "photos": [
     {
@@ -220,6 +220,19 @@
       "location": "香嵐渓",
       "longitude": 137.3183,
       "photo": "photos/muse-korankei-01.jpg"
+    },
+    {
+      "background": "generated",
+      "background_source": "AI-generated Kenrokuen Garden at night during the autumn maple light-up, Kotoji stone lantern and snow-rope-wrapped Karasaki pine by Kasumiga-ike pond, lantern light reflecting on the water, MUSE pausing on the bridge looking up at the illuminated red maples, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+      "city": "金沢市",
+      "comment": "霞ヶ池の橋の欄干にもたれて、ライトアップされた真っ赤なもみじを見上げたよ。徽軫灯籠と雪吊りの松、池に映る灯り——11月22日の今夜だけの兼六園だった。",
+      "country": "日本",
+      "date": "2026-11-22T18:25:00+09:00",
+      "heading": 90,
+      "latitude": 36.562,
+      "location": "兼六園",
+      "longitude": 136.6626,
+      "photo": "photos/muse-kenrokuen-01.jpg"
     }
   ]
 }
