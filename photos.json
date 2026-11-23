@@ -1,16 +1,16 @@
 {
   "latest": {
     "background": "generated",
-    "background_source": "AI-generated Meiji Jingu Gaien ginkgo avenue in late November, golden tunnel of 146 ginkgo trees with the Meiji Memorial Picture Gallery at the far end, morning light and a carpet of fallen golden leaves, MUSE walking along the avenue holding a ginkgo leaf and looking up at the canopy, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
-    "city": "港区",
-    "comment": "金色のトンネルを歩いて、ひらりと落ちてきたイチョウの葉を一枚。並木の向こうに聖徳記念絵画館、足元は黄金のじゅうたん——11月23日の朝の外苑だった。",
+    "background_source": "AI-generated Lake Kawaguchi Momiji Corridor at night during the maple festival light-up, red maple tunnel over a stream, paper lanterns, Mt. Fuji silhouette in the dusk sky, MUSE walking on the wooden walkway looking up at the illuminated maples, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+    "city": "富士河口湖町",
+    "comment": "提灯のあかりに照らされた真っ赤なもみじのトンネルを歩いて、低い枝にそっと手を伸ばしたよ。川面に映る灯りと、暮れなずむ空の向こうの富士山——11月23日の夜のもみじ回廊だった。",
     "country": "日本",
-    "date": "2026-11-23T08:25:00+09:00",
+    "date": "2026-11-23T18:25:00+09:00",
     "heading": 90,
-    "latitude": 35.673,
-    "location": "明治神宮外苑いちょう並木",
-    "longitude": 139.7204,
-    "photo": "photos/muse-gaien-ginkgo-01.jpg"
+    "latitude": 35.4987,
+    "location": "河口湖もみじ回廊",
+    "longitude": 138.7656,
+    "photo": "photos/muse-kawaguchi-momiji-01.jpg"
   },
   "photos": [
     {
@@ -246,6 +246,19 @@
       "location": "明治神宮外苑いちょう並木",
       "longitude": 139.7204,
       "photo": "photos/muse-gaien-ginkgo-01.jpg"
+    },
+    {
+      "background": "generated",
+      "background_source": "AI-generated Lake Kawaguchi Momiji Corridor at night during the maple festival light-up, red maple tunnel over a stream, paper lanterns, Mt. Fuji silhouette in the dusk sky, MUSE walking on the wooden walkway looking up at the illuminated maples, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+      "city": "富士河口湖町",
+      "comment": "提灯のあかりに照らされた真っ赤なもみじのトンネルを歩いて、低い枝にそっと手を伸ばしたよ。川面に映る灯りと、暮れなずむ空の向こうの富士山——11月23日の夜のもみじ回廊だった。",
+      "country": "日本",
+      "date": "2026-11-23T18:25:00+09:00",
+      "heading": 90,
+      "latitude": 35.4987,
+      "location": "河口湖もみじ回廊",
+      "longitude": 138.7656,
+      "photo": "photos/muse-kawaguchi-momiji-01.jpg"
     }
   ]
 }
