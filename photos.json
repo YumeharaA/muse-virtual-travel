@@ -1,16 +1,16 @@
 {
   "latest": {
     "background": "generated",
-    "background_source": "AI-generated Lake Kawaguchi Momiji Corridor at night during the maple festival light-up, red maple tunnel over a stream, paper lanterns, Mt. Fuji silhouette in the dusk sky, MUSE walking on the wooden walkway looking up at the illuminated maples, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
-    "city": "富士河口湖町",
-    "comment": "提灯のあかりに照らされた真っ赤なもみじのトンネルを歩いて、低い枝にそっと手を伸ばしたよ。川面に映る灯りと、暮れなずむ空の向こうの富士山——11月23日の夜のもみじ回廊だった。",
+    "background_source": "AI-generated Mt. Takao Yakuo-in temple approach in late November morning, red maple trees at peak colour over stone steps, stone lanterns and wooden temple gate, MUSE pausing on the steps touching a low maple branch and looking up, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+    "city": "八王子市",
+    "comment": "薬王院への石段をのぼって、低い枝のもみじにそっと手を伸ばしたよ。朝の光に透ける真っ赤な葉と、石段に散った落ち葉——11月24日の朝、高尾山もみじまつりの真っ最中だった。",
     "country": "日本",
-    "date": "2026-11-23T18:25:00+09:00",
+    "date": "2026-11-24T08:25:00+09:00",
     "heading": 90,
-    "latitude": 35.4987,
-    "location": "河口湖もみじ回廊",
-    "longitude": 138.7656,
-    "photo": "photos/muse-kawaguchi-momiji-01.jpg"
+    "latitude": 35.6253,
+    "location": "高尾山",
+    "longitude": 139.2434,
+    "photo": "photos/muse-takao-01.jpg"
   },
   "photos": [
     {
@@ -259,6 +259,19 @@
       "location": "河口湖もみじ回廊",
       "longitude": 138.7656,
       "photo": "photos/muse-kawaguchi-momiji-01.jpg"
+    },
+    {
+      "background": "generated",
+      "background_source": "AI-generated Mt. Takao Yakuo-in temple approach in late November morning, red maple trees at peak colour over stone steps, stone lanterns and wooden temple gate, MUSE pausing on the steps touching a low maple branch and looking up, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+      "city": "八王子市",
+      "comment": "薬王院への石段をのぼって、低い枝のもみじにそっと手を伸ばしたよ。朝の光に透ける真っ赤な葉と、石段に散った落ち葉——11月24日の朝、高尾山もみじまつりの真っ最中だった。",
+      "country": "日本",
+      "date": "2026-11-24T08:25:00+09:00",
+      "heading": 90,
+      "latitude": 35.6253,
+      "location": "高尾山",
+      "longitude": 139.2434,
+      "photo": "photos/muse-takao-01.jpg"
     }
   ]
 }
