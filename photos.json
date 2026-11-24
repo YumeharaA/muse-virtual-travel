@@ -1,16 +1,16 @@
 {
   "latest": {
     "background": "generated",
-    "background_source": "AI-generated Mt. Takao Yakuo-in temple approach in late November morning, red maple trees at peak colour over stone steps, stone lanterns and wooden temple gate, MUSE pausing on the steps touching a low maple branch and looking up, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
-    "city": "八王子市",
-    "comment": "薬王院への石段をのぼって、低い枝のもみじにそっと手を伸ばしたよ。朝の光に透ける真っ赤な葉と、石段に散った落ち葉——11月24日の朝、高尾山もみじまつりの真っ最中だった。",
+    "background_source": "AI-generated Eikando Zenrin-ji temple at night during the autumn maple light-up, about 3,000 illuminated red maple trees, red leaves reflecting on Hojo-ike pond, Tahoto pagoda silhouette among the maples, MUSE pausing on the wooden bridge touching a low maple branch and looking up, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+    "city": "京都市",
+    "comment": "極楽橋の上から、ライトアップされた真っ赤なもみじを見上げたよ。放生池に映る赤い葉と、闇に浮かぶ多宝塔——11月24日の夜、「もみじの永観堂」は今まさに見頃だった。",
     "country": "日本",
-    "date": "2026-11-24T08:25:00+09:00",
+    "date": "2026-11-24T18:25:00+09:00",
     "heading": 90,
-    "latitude": 35.6253,
-    "location": "高尾山",
-    "longitude": 139.2434,
-    "photo": "photos/muse-takao-01.jpg"
+    "latitude": 35.0139,
+    "location": "永観堂",
+    "longitude": 135.7952,
+    "photo": "photos/muse-eikando-01.jpg"
   },
   "photos": [
     {
@@ -272,6 +272,19 @@
       "location": "高尾山",
       "longitude": 139.2434,
       "photo": "photos/muse-takao-01.jpg"
+    },
+    {
+      "background": "generated",
+      "background_source": "AI-generated Eikando Zenrin-ji temple at night during the autumn maple light-up, about 3,000 illuminated red maple trees, red leaves reflecting on Hojo-ike pond, Tahoto pagoda silhouette among the maples, MUSE pausing on the wooden bridge touching a low maple branch and looking up, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+      "city": "京都市",
+      "comment": "極楽橋の上から、ライトアップされた真っ赤なもみじを見上げたよ。放生池に映る赤い葉と、闇に浮かぶ多宝塔——11月24日の夜、「もみじの永観堂」は今まさに見頃だった。",
+      "country": "日本",
+      "date": "2026-11-24T18:25:00+09:00",
+      "heading": 90,
+      "latitude": 35.0139,
+      "location": "永観堂",
+      "longitude": 135.7952,
+      "photo": "photos/muse-eikando-01.jpg"
     }
   ]
 }
