@@ -1,16 +1,16 @@
 {
   "latest": {
-    "background": "generated",
-    "background_source": "AI-generated Rikugien Garden at night during the autumn maple light-up (first night of Niwa Momiji no Rikugien, Nov 25 - Dec 6, 2026), illuminated red Japanese maple trees around the pond with their reflections on the dark water, stone lantern and wooden lakeside path, MUSE pausing on the path holding a fallen red maple leaf and looking at the reflection, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
-    "city": "文京区",
-    "comment": "夜間特別観賞の初日、六義園へ。池のほとりで拾った真っ赤なもみじを手に、水面に映る紅葉を眺めたよ。灯りに浮かぶ庭園と、静かな水のゆらぎ——11月25日の夜、都心の紅葉は今まさに見頃だった。",
-    "country": "日本",
+    "photo": "photos/muse-midosuji-01.jpg",
     "date": "2026-11-25T18:25:00+09:00",
+    "latitude": 34.6745,
+    "longitude": 135.4995,
+    "location": "御堂筋イルミネーション",
+    "city": "大阪市",
+    "country": "日本",
     "heading": 90,
-    "latitude": 35.7313,
-    "location": "六義園",
-    "longitude": 139.7466,
-    "photo": "photos/muse-rikugien-01.jpg"
+    "comment": "御堂筋イルミネーション2026へ。金と青の光に染まるイチョウ並木を歩きながら、低い枝の灯りに手を伸ばしたよ。90周年の「LINK」の光が約4km続く大通り——11月25日の夜、大阪は今まさに光の季節だった。",
+    "background": "generated",
+    "background_source": "AI-generated Midosuji boulevard in Osaka at night during the Midosuji Illumination 2026 (90th anniversary, theme LINK, Nov 3 - Dec 31, 2026), rows of ginkgo trees lit with golden and blue LED lights along the wide avenue, light reflecting on the pavement, MUSE walking along the tree-lined avenue and touching a low illuminated branch, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
   },
   "photos": [
     {
@@ -311,6 +311,19 @@
       "location": "六義園",
       "longitude": 139.7466,
       "photo": "photos/muse-rikugien-01.jpg"
+    },
+    {
+      "photo": "photos/muse-midosuji-01.jpg",
+      "date": "2026-11-25T18:25:00+09:00",
+      "latitude": 34.6745,
+      "longitude": 135.4995,
+      "location": "御堂筋イルミネーション",
+      "city": "大阪市",
+      "country": "日本",
+      "heading": 90,
+      "comment": "御堂筋イルミネーション2026へ。金と青の光に染まるイチョウ並木を歩きながら、低い枝の灯りに手を伸ばしたよ。90周年の「LINK」の光が約4km続く大通り——11月25日の夜、大阪は今まさに光の季節だった。",
+      "background": "generated",
+      "background_source": "AI-generated Midosuji boulevard in Osaka at night during the Midosuji Illumination 2026 (90th anniversary, theme LINK, Nov 3 - Dec 31, 2026), rows of ginkgo trees lit with golden and blue LED lights along the wide avenue, light reflecting on the pavement, MUSE walking along the tree-lined avenue and touching a low illuminated branch, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
     }
   ]
 }
