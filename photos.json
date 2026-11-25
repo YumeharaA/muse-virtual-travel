@@ -1,16 +1,16 @@
 {
   "latest": {
     "background": "generated",
-    "background_source": "AI-generated Minoh Falls in late November morning, 33-metre waterfall framed by red Japanese maple trees at peak colour, morning light through the canopy, wooden viewing deck and Takimichi riverside path, MUSE pausing on the path touching a low maple branch and looking up, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
-    "city": "箕面市",
-    "comment": "滝道を歩いて箕面大滝へ。低い枝のもみじに手を伸ばして、真っ赤な葉を見上げたよ。朝の光に透ける紅葉と落差33mの滝——11月25日の朝、箕面は今まさに見頃だった。",
+    "background_source": "AI-generated Rikugien Garden at night during the autumn maple light-up (first night of Niwa Momiji no Rikugien, Nov 25 - Dec 6, 2026), illuminated red Japanese maple trees around the pond with their reflections on the dark water, stone lantern and wooden lakeside path, MUSE pausing on the path holding a fallen red maple leaf and looking at the reflection, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+    "city": "文京区",
+    "comment": "夜間特別観賞の初日、六義園へ。池のほとりで拾った真っ赤なもみじを手に、水面に映る紅葉を眺めたよ。灯りに浮かぶ庭園と、静かな水のゆらぎ——11月25日の夜、都心の紅葉は今まさに見頃だった。",
     "country": "日本",
-    "date": "2026-11-25T08:25:00+09:00",
+    "date": "2026-11-25T18:25:00+09:00",
     "heading": 90,
-    "latitude": 34.8558,
-    "location": "箕面大滝",
-    "longitude": 135.4711,
-    "photo": "photos/muse-minoh-01.jpg"
+    "latitude": 35.7313,
+    "location": "六義園",
+    "longitude": 139.7466,
+    "photo": "photos/muse-rikugien-01.jpg"
   },
   "photos": [
     {
@@ -298,6 +298,19 @@
       "location": "箕面大滝",
       "longitude": 135.4711,
       "photo": "photos/muse-minoh-01.jpg"
+    },
+    {
+      "background": "generated",
+      "background_source": "AI-generated Rikugien Garden at night during the autumn maple light-up (first night of Niwa Momiji no Rikugien, Nov 25 - Dec 6, 2026), illuminated red Japanese maple trees around the pond with their reflections on the dark water, stone lantern and wooden lakeside path, MUSE pausing on the path holding a fallen red maple leaf and looking at the reflection, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)",
+      "city": "文京区",
+      "comment": "夜間特別観賞の初日、六義園へ。池のほとりで拾った真っ赤なもみじを手に、水面に映る紅葉を眺めたよ。灯りに浮かぶ庭園と、静かな水のゆらぎ——11月25日の夜、都心の紅葉は今まさに見頃だった。",
+      "country": "日本",
+      "date": "2026-11-25T18:25:00+09:00",
+      "heading": 90,
+      "latitude": 35.7313,
+      "location": "六義園",
+      "longitude": 139.7466,
+      "photo": "photos/muse-rikugien-01.jpg"
     }
   ]
 }
