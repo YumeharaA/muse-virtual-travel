@@ -1,16 +1,16 @@
 {
   "latest": {
-    "photo": "photos/muse-midosuji-01.jpg",
-    "date": "2026-11-25T18:25:00+09:00",
-    "latitude": 34.6745,
-    "longitude": 135.4995,
-    "location": "御堂筋イルミネーション",
-    "city": "大阪市",
+    "photo": "photos/muse-nara-park-01.jpg",
+    "date": "2026-11-26T08:25:00+09:00",
+    "latitude": 34.685,
+    "longitude": 135.832,
+    "location": "奈良公園",
+    "city": "奈良市",
     "country": "日本",
     "heading": 90,
-    "comment": "御堂筋イルミネーション2026へ。金と青の光に染まるイチョウ並木を歩きながら、低い枝の灯りに手を伸ばしたよ。90周年の「LINK」の光が約4km続く大通り——11月25日の夜、大阪は今まさに光の季節だった。",
+    "comment": "浮見堂の池のほとりで、鹿に鹿せんべいをあげたよ。頭を下げてお辞儀する鹿さん、とってもお行儀がよかった。真っ赤なもみじと金色のイチョウ、向こうには興福寺の五重塔——11月26日の朝、奈良の紅葉は今まさに見頃だった。",
     "background": "generated",
-    "background_source": "AI-generated Midosuji boulevard in Osaka at night during the Midosuji Illumination 2026 (90th anniversary, theme LINK, Nov 3 - Dec 31, 2026), rows of ginkgo trees lit with golden and blue LED lights along the wide avenue, light reflecting on the pavement, MUSE walking along the tree-lined avenue and touching a low illuminated branch, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
+    "background_source": "AI-generated Nara Park in late November morning, Ukimido pavilion on Sagi-ike pond, red Japanese maple and golden ginkgo trees at peak colour, a Nara deer bowing and eating a deer cracker from MUSE's hand, Kofukuji five-story pagoda in the background, fallen leaves low near the ground, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
   },
   "photos": [
     {
@@ -324,6 +324,19 @@
       "comment": "御堂筋イルミネーション2026へ。金と青の光に染まるイチョウ並木を歩きながら、低い枝の灯りに手を伸ばしたよ。90周年の「LINK」の光が約4km続く大通り——11月25日の夜、大阪は今まさに光の季節だった。",
       "background": "generated",
       "background_source": "AI-generated Midosuji boulevard in Osaka at night during the Midosuji Illumination 2026 (90th anniversary, theme LINK, Nov 3 - Dec 31, 2026), rows of ginkgo trees lit with golden and blue LED lights along the wide avenue, light reflecting on the pavement, MUSE walking along the tree-lined avenue and touching a low illuminated branch, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
+    },
+    {
+      "photo": "photos/muse-nara-park-01.jpg",
+      "date": "2026-11-26T08:25:00+09:00",
+      "latitude": 34.685,
+      "longitude": 135.832,
+      "location": "奈良公園",
+      "city": "奈良市",
+      "country": "日本",
+      "heading": 90,
+      "comment": "浮見堂の池のほとりで、鹿に鹿せんべいをあげたよ。頭を下げてお辞儀する鹿さん、とってもお行儀がよかった。真っ赤なもみじと金色のイチョウ、向こうには興福寺の五重塔——11月26日の朝、奈良の紅葉は今まさに見頃だった。",
+      "background": "generated",
+      "background_source": "AI-generated Nara Park in late November morning, Ukimido pavilion on Sagi-ike pond, red Japanese maple and golden ginkgo trees at peak colour, a Nara deer bowing and eating a deer cracker from MUSE's hand, Kofukuji five-story pagoda in the background, fallen leaves low near the ground, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
     }
   ]
 }
