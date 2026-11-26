@@ -1,16 +1,16 @@
 {
   "latest": {
-    "photo": "photos/muse-nara-park-01.jpg",
-    "date": "2026-11-26T08:25:00+09:00",
-    "latitude": 34.685,
-    "longitude": 135.832,
-    "location": "奈良公園",
-    "city": "奈良市",
+    "photo": "photos/muse-hasedera-01.jpg",
+    "date": "2026-11-26T18:25:00+09:00",
+    "latitude": 35.3128,
+    "longitude": 139.5352,
+    "location": "長谷寺",
+    "city": "鎌倉市",
     "country": "日本",
     "heading": 90,
-    "comment": "浮見堂の池のほとりで、鹿に鹿せんべいをあげたよ。頭を下げてお辞儀する鹿さん、とってもお行儀がよかった。真っ赤なもみじと金色のイチョウ、向こうには興福寺の五重塔——11月26日の朝、奈良の紅葉は今まさに見頃だった。",
+    "comment": "見晴台から、ライトアップされた真っ赤なもみじと由比ヶ浜の夜の海を眺めたよ。拾ったもみじを一枚手に、振り返って一枚。石灯籠のあかりと観音堂の灯り——11月26日の夜、12年に一度の午歳総開帳の長谷寺は今まさに見頃だった。",
     "background": "generated",
-    "background_source": "AI-generated Nara Park in late November morning, Ukimido pavilion on Sagi-ike pond, red Japanese maple and golden ginkgo trees at peak colour, a Nara deer bowing and eating a deer cracker from MUSE's hand, Kofukuji five-story pagoda in the background, fallen leaves low near the ground, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
+    "background_source": "AI-generated Hase-dera temple in Kamakura at night during the autumn maple light-up (night special viewing Nov 21 - Dec 6, 2026, 12-yearly Gosa Kaicho opening), illuminated red maple trees, stone lanterns and the Kannon hall glowing, dark sea of Yuigahama in the distance, MUSE at the viewing platform holding a red maple leaf and looking back over her shoulder, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
   },
   "photos": [
     {
@@ -337,6 +337,19 @@
       "comment": "浮見堂の池のほとりで、鹿に鹿せんべいをあげたよ。頭を下げてお辞儀する鹿さん、とってもお行儀がよかった。真っ赤なもみじと金色のイチョウ、向こうには興福寺の五重塔——11月26日の朝、奈良の紅葉は今まさに見頃だった。",
       "background": "generated",
       "background_source": "AI-generated Nara Park in late November morning, Ukimido pavilion on Sagi-ike pond, red Japanese maple and golden ginkgo trees at peak colour, a Nara deer bowing and eating a deer cracker from MUSE's hand, Kofukuji five-story pagoda in the background, fallen leaves low near the ground, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
+    },
+    {
+      "photo": "photos/muse-hasedera-01.jpg",
+      "date": "2026-11-26T18:25:00+09:00",
+      "latitude": 35.3128,
+      "longitude": 139.5352,
+      "location": "長谷寺",
+      "city": "鎌倉市",
+      "country": "日本",
+      "heading": 90,
+      "comment": "見晴台から、ライトアップされた真っ赤なもみじと由比ヶ浜の夜の海を眺めたよ。拾ったもみじを一枚手に、振り返って一枚。石灯籠のあかりと観音堂の灯り——11月26日の夜、12年に一度の午歳総開帳の長谷寺は今まさに見頃だった。",
+      "background": "generated",
+      "background_source": "AI-generated Hase-dera temple in Kamakura at night during the autumn maple light-up (night special viewing Nov 21 - Dec 6, 2026, 12-yearly Gosa Kaicho opening), illuminated red maple trees, stone lanterns and the Kannon hall glowing, dark sea of Yuigahama in the distance, MUSE at the viewing platform holding a red maple leaf and looking back over her shoulder, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
     }
   ]
 }
