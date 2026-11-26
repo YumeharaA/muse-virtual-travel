@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MUSE 仮想旅行 — 散歩マップ</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #0b0f14; color: #e8edf2;
+    font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; }
+  #app { display: flex; flex-direction: column; height: 100%; }
+  header { padding: 10px 14px 8px; background: #10161d; border-bottom: 1px solid #22303d; }
+  header .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  h1 { font-size: 16px; margin: 0; font-weight: 700; }
+  #dayTitle { font-size: 13px; color: #9fb3c8; margin-top: 2px; }
+  #dayStats { font-size: 12px; color: #9fb3c8; margin-top: 2px; }
+  select { background: #1a242f; color: #e8edf2; border: 1px solid #33465a; border-radius: 8px;
+    padding: 6px 8px; font-size: 14px; }
+  #mapWrap { position: relative; flex: 1; }
+  #map { position: absolute; inset: 0; }
+  #statusPill { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 600;
+    background: rgba(10, 16, 22, 0.88); border: 1px solid #33465a; color: #e8edf2;
+    padding: 6px 14px; border-radius: 999px; font-size: 13px; white-space: nowrap; }
+  #statusPill .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: #57d977; margin-right: 6px; }
+  footer { padding: 6px 14px; font-size: 11px; color: #71869a; background: #10161d;
+    border-top: 1px solid #22303d; }
+  .pin { display: flex; align-items: center; justify-content: center; border-radius: 50%;
+    border: 2px solid #fff; box-shadow: 0 1px 5px rgba(0,0,0,.55); }
+  .pin svg { display: block; }
+  .pin-stop { background: #e8710a; }
+  .pin-photo { background: #20262e; }
+  .pin-avatar { background: #d4a017; }
+  .now-dot { width: 18px; height: 18px; border-radius: 50%; background: #4da3ff;
+    border: 3px solid #fff; box-shadow: 0 0 0 6px rgba(77,163,255,.35), 0 1px 6px rgba(0,0,0,.6); }
+  .leaflet-popup-content { margin: 10px 12px; font-size: 13px; line-height: 1.5; color: #16202b; }
+  .leaflet-popup-content img { width: 100%; border-radius: 8px; margin-bottom: 6px; }
+  .leaflet-popup-content .pname { font-weight: 700; font-size: 14px; }
+  .leaflet-popup-content .ptime { color: #5a6b7a; font-size: 12px; }
+  .leaflet-popup-content .pcredit { color: #5a6b7a; font-size: 11px; margin-top: 4px; }
+  .leaflet-popup-content a { color: #0b6bcb; }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="row">
+      <h1>🌅 MUSE 散歩マップ</h1>
+      <select id="daySelect"></select>
+    </div>
+    <div id="dayTitle"></div>
+    <div id="dayStats"></div>
+  </header>
+  <div id="mapWrap">
+    <div id="map"></div>
+    <div id="statusPill"><span class="dot"></span><span id="statusText">読み込み中…</span></div>
+  </div>
+  <footer>地図: © OpenStreetMap contributors © CARTO / ルート: FOSSGIS Routing (OSRM) / 写真はオープンライセンスの実写（各ピンのクレジット参照）</footer>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+"use strict";
+const SVG_CAMERA = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>';
+const SVG_FLAG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M4 22V4c4-2 8 2 12 0v10c-4 2-8-2-12 0" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>';
+const SVG_STAR = '<svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>';
+
+let map = null, layerGroup = null, nowMarker = null, walkedLine = null;
+let walks = null, currentDay = null;
+
+function jstNow() {
+  return new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Tokyo" }));
+}
+function jstTodayStr() {
+  const n = jstNow();
+  const p = (x) => String(x).padStart(2, "0");
+  return n.getFullYear() + "-" + p(n.getMonth() + 1) + "-" + p(n.getDate());
+}
+function haversineKm(a, b) {
+  const R = 6371, rad = Math.PI / 180;
+  const dp = (b[0] - a[0]) * rad, dl = (b[1] - a[1]) * rad;
+  const h = Math.sin(dp / 2) ** 2 + Math.cos(a[0] * rad) * Math.cos(b[0] * rad) * Math.sin(dl / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+function timeToMin(day, hhmm) {
+  const [h, m] = hhmm.split(":").map(Number);
+  const base = new Date(day.date + "T00:00:00");
+  return base.getTime() / 60000 + h * 60 + m;
+}
+function nowMin(day) {
+  const n = jstNow();
+  const base = new Date(day.date + "T00:00:00");
+  return base.getTime() / 60000 + n.getHours() * 60 + n.getMinutes() + n.getSeconds() / 60;
+}
+
+// スケジュール（分→距離km）から、指定時刻に歩いた距離を返す
+function distanceAt(day, minutes) {
+  const s = day.schedule;
+  if (!s || s.length === 0) return 0;
+  const startMin = timeToMin(day, day.start_time);
+  const rel = minutes - startMin;
+  if (rel <= s[0].t) return s[0].d;
+  for (let i = 1; i < s.length; i++) {
+    if (rel <= s[i].t) {
+      const span = s[i].t - s[i - 1].t;
+      if (span <= 0) return s[i].d;
+      const f = (rel - s[i - 1].t) / span;
+      return s[i - 1].d + (s[i].d - s[i - 1].d) * f;
+    }
+  }
+  return day.distance_km;
+}
+// ルート上で距離d[km]の地点の座標と、そこまでの部分ポリラインを返す
+function pointAtDistance(route, d) {
+  if (!route || route.length === 0) return null;
+  if (d <= 0) return { point: route[0], partial: [route[0]] };
+  let acc = 0;
+  const partial = [route[0]];
+  for (let i = 1; i < route.length; i++) {
+    const seg = haversineKm(route[i - 1], route[i]);
+    if (acc + seg >= d) {
+      const f = seg === 0 ? 0 : (d - acc) / seg;
+      const pt = [route[i - 1][0] + (route[i][0] - route[i - 1][0]) * f,
+                  route[i - 1][1] + (route[i][1] - route[i - 1][1]) * f];
+      partial.push(pt);
+      return { point: pt, partial };
+    }
+    acc += seg;
+    partial.push(route[i]);
+  }
+  return { point: route[route.length - 1], partial };
+}
+function statusAt(day, minutes) {
+  const startMin = timeToMin(day, day.start_time);
+  if (minutes < startMin) return { kind: "before", text: "出発前" };
+  for (const stop of day.stops) {
+    const a = timeToMin(day, stop.arrive), dep = timeToMin(day, stop.depart);
+    if (stop.stay_min > 0 && minutes >= a && minutes < dep) {
+      return { kind: "staying", text: "立ち寄り中：" + stop.name, stop };
+    }
+  }
+  const d = distanceAt(day, minutes);
+  if (d >= day.distance_km - 1e-9) {
+    const goal = day.stops[day.stops.length - 1];
+    return { kind: "goal", text: "ゴール到着：" + (goal ? goal.name : ""), stop: goal };
+  }
+  return { kind: "walking", text: "歩行中" };
+}
+function pinIcon(cls, svg, size) {
+  return L.divIcon({ className: "", html: '<div class="pin ' + cls + '" style="width:' + size + 'px;height:' + size + 'px">' + svg + "</div>",
+    iconSize: [size, size], iconAnchor: [size / 2, size / 2], popupAnchor: [0, -size / 2] });
+}
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+function render(day) {
+  currentDay = day;
+  document.getElementById("dayTitle").textContent = day.title;
+  if (layerGroup) layerGroup.remove();
+  layerGroup = L.layerGroup().addTo(map);
+  nowMarker = null;
+  walkedLine = null;
+
+  const route = day.route;
+  L.polyline(route, { color: "#3d5a76", weight: 5, opacity: 0.8 }).addTo(layerGroup);
+
+  for (const stop of day.stops) {
+    const html = '<div class="pname">' + esc(stop.name) + "</div>" +
+      '<div class="ptime">' + esc(stop.arrive) + " 着" + (stop.stay_min ? "（" + stop.stay_min + "分滞在）" : "") + "</div>" +
+      (stop.comment ? "<div>" + esc(stop.comment) + "</div>" : "");
+    L.marker([stop.lat, stop.lng], { icon: pinIcon("pin-stop", SVG_FLAG, 26) }).bindPopup(html).addTo(layerGroup);
+  }
+  for (const ph of (day.photos || [])) {
+    const html = (ph.image ? '<img src="' + esc(ph.image) + '" alt="">' : "") +
+      '<div class="pname">' + esc(ph.name || "写真") + "</div>" +
+      '<div class="ptime">' + esc(ph.time || "") + " 撮影</div>" +
+      (ph.comment ? "<div>" + esc(ph.comment) + "</div>" : "") +
+      '<div class="pcredit">写真: ' + esc(ph.credit || "") +
+      (ph.source_url ? '（<a href="' + esc(ph.source_url) + '" target="_blank" rel="noopener">出典</a>）' : "") + "</div>" +
+      (ph.streetview ? '<div><a href="' + esc(ph.streetview) + '" target="_blank" rel="noopener">Street Viewで見る</a></div>' : "");
+    L.marker([ph.lat, ph.lng], { icon: pinIcon("pin-photo", SVG_CAMERA, 26) }).bindPopup(html, { maxWidth: 260 }).addTo(layerGroup);
+  }
+  if (day.avatar_photo) {
+    const ap = day.avatar_photo;
+    const src = String(ap.file || "").startsWith("http") ? ap.file : ap.file;
+    const html = (src ? '<img src="' + esc(src) + '" alt="">' : "") +
+      '<div class="pname">📸 今日の記念写真</div>' +
+      '<div class="ptime">' + esc(ap.location || "") + (ap.time ? " " + esc(ap.time) : "") + "</div>";
+    L.marker([ap.lat, ap.lng], { icon: pinIcon("pin-avatar", SVG_STAR, 30) }).bindPopup(html, { maxWidth: 260 }).addTo(layerGroup);
+  }
+  map.fitBounds(L.latLngBounds(route), { padding: [30, 30] });
+  updatePosition();
+}
+
+function updatePosition() {
+  const day = currentDay;
+  if (!day) return;
+  const today = jstTodayStr();
+  let minutes;
+  if (day.date < today) minutes = timeToMin(day, day.end_time) + 9999; // 過去の日はゴール済み表示
+  else minutes = nowMin(day);
+  const d = distanceAt(day, minutes);
+  const st = statusAt(day, minutes);
+  const pos = pointAtDistance(day.route, d);
+  document.getElementById("statusText").textContent = st.text;
+  document.getElementById("dayStats").textContent =
+    "今日の散歩 " + day.distance_km.toFixed(2) + " km（うち歩いた距離 約" + Math.min(d, day.distance_km).toFixed(2) + " km） " +
+    day.start_time + "〜" + day.end_time;
+  if (pos) {
+    if (walkedLine) walkedLine.remove();
+    walkedLine = L.polyline(pos.partial, { color: "#4da3ff", weight: 5, opacity: 0.95 }).addTo(layerGroup);
+    if (nowMarker) nowMarker.remove();
+    nowMarker = L.marker(pos.point, { icon: L.divIcon({ className: "", html: '<div class="now-dot"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1000 }).addTo(layerGroup);
+  }
+}
+
+async function load() {
+  const res = await fetch("walks.json?t=" + Date.now());
+  walks = await res.json();
+  const sel = document.getElementById("daySelect");
+  sel.innerHTML = "";
+  const days = (walks.days || []).slice().sort((a, b) => (a.date < b.date ? 1 : -1));
+  for (const d of days) {
+    const opt = document.createElement("option");
+    opt.value = d.date;
+    opt.textContent = d.date + " " + d.title;
+    sel.appendChild(opt);
+  }
+  const today = jstTodayStr();
+  const initial = days.find((d) => d.date === today) || days[0];
+  if (initial) { sel.value = initial.date; render(initial); }
+  sel.addEventListener("change", () => {
+    const d = days.find((x) => x.date === sel.value);
+    if (d) render(d);
+  });
+}
+
+function init() {
+  map = L.map("map", { zoomControl: true });
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: "abcd", maxZoom: 20
+  }).addTo(map);
+  map.setView([35.3128, 139.5352], 13);
+  load().catch((e) => {
+    document.getElementById("statusText").textContent = "読み込みに失敗しました";
+    console.error(e);
+  });
+  setInterval(() => { if (currentDay) updatePosition(); }, 60000);
+}
+document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>
