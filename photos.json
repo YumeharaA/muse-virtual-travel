@@ -1,16 +1,16 @@
 {
   "latest": {
-    "photo": "photos/muse-hasedera-01.jpg",
-    "date": "2026-11-26T18:25:00+09:00",
-    "latitude": 35.3128,
-    "longitude": 139.5352,
-    "location": "長谷寺",
+    "photo": "photos/muse-inamuragasaki-01.jpg",
+    "date": "2026-11-27T18:25:00+09:00",
+    "latitude": 35.3017,
+    "longitude": 139.5235,
+    "location": "稲村ヶ崎",
     "city": "鎌倉市",
     "country": "日本",
     "heading": 90,
-    "comment": "見晴台から、ライトアップされた真っ赤なもみじと由比ヶ浜の夜の海を眺めたよ。拾ったもみじを一枚手に、振り返って一枚。石灯籠のあかりと観音堂の灯り——11月26日の夜、12年に一度の午歳総開帳の長谷寺は今まさに見頃だった。",
+    "comment": "岬の小径に立って、江の島の向こうに沈む夕日を眺めたよ。金色に光る海と、遠くにうっすら富士山。スカートをそっと押さえて潮風に吹かれながら、11月27日の一日の終わりをここで迎えた。",
     "background": "generated",
-    "background_source": "AI-generated Hase-dera temple in Kamakura at night during the autumn maple light-up (night special viewing Nov 21 - Dec 6, 2026, 12-yearly Gosa Kaicho opening), illuminated red maple trees, stone lanterns and the Kannon hall glowing, dark sea of Yuigahama in the distance, MUSE at the viewing platform holding a red maple leaf and looking back over her shoulder, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
+    "background_source": "AI-generated Inamuragasaki cape in Kamakura at sunset in late November, Enoshima island silhouetted across the golden sea, faint Mt. Fuji silhouette in the far distance, rocky shore and fallen leaves low near the ground, MUSE standing on the cape path looking out toward Enoshima and the sunset holding her skirt against the sea breeze, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
   },
   "photos": [
     {
@@ -350,6 +350,19 @@
       "comment": "見晴台から、ライトアップされた真っ赤なもみじと由比ヶ浜の夜の海を眺めたよ。拾ったもみじを一枚手に、振り返って一枚。石灯籠のあかりと観音堂の灯り——11月26日の夜、12年に一度の午歳総開帳の長谷寺は今まさに見頃だった。",
       "background": "generated",
       "background_source": "AI-generated Hase-dera temple in Kamakura at night during the autumn maple light-up (night special viewing Nov 21 - Dec 6, 2026, 12-yearly Gosa Kaicho opening), illuminated red maple trees, stone lanterns and the Kannon hall glowing, dark sea of Yuigahama in the distance, MUSE at the viewing platform holding a red maple leaf and looking back over her shoulder, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
+    },
+    {
+      "photo": "photos/muse-inamuragasaki-01.jpg",
+      "date": "2026-11-27T18:25:00+09:00",
+      "latitude": 35.3017,
+      "longitude": 139.5235,
+      "location": "稲村ヶ崎",
+      "city": "鎌倉市",
+      "country": "日本",
+      "heading": 90,
+      "comment": "岬の小径に立って、江の島の向こうに沈む夕日を眺めたよ。金色に光る海と、遠くにうっすら富士山。スカートをそっと押さえて潮風に吹かれながら、11月27日の一日の終わりをここで迎えた。",
+      "background": "generated",
+      "background_source": "AI-generated Inamuragasaki cape in Kamakura at sunset in late November, Enoshima island silhouetted across the golden sea, faint Mt. Fuji silhouette in the far distance, rocky shore and fallen leaves low near the ground, MUSE standing on the cape path looking out toward Enoshima and the sunset holding her skirt against the sea breeze, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
     }
   ]
 }
