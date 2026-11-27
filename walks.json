@@ -2177,7 +2177,13 @@
           "streetview": "https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=35.3017,139.5235"
         }
       ],
-      "avatar_photo": null
+      "avatar_photo": {
+        "file": "photos/muse-inamuragasaki-01.jpg",
+        "lat": 35.3017,
+        "lng": 139.5235,
+        "location": "稲村ヶ崎",
+        "time": "15:56"
+      }
     }
   ]
 }
