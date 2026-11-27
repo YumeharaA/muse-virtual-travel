@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MUSE 仮想旅行 — 散歩マップ</title>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="散歩マップ">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#10161d">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
   html, body { margin: 0; padding: 0; height: 100%; background: #0b0f14; color: #e8edf2;
@@ -30,6 +36,7 @@
   .pin svg { display: block; }
   .pin-stop { background: #e8710a; }
   .pin-photo { background: #20262e; }
+  .pin-locked { background: #6b7684; }
   .pin-avatar { background: #d4a017; }
   .now-dot { width: 18px; height: 18px; border-radius: 50%; background: #4da3ff;
     border: 3px solid #fff; box-shadow: 0 0 0 6px rgba(77,163,255,.35), 0 1px 6px rgba(0,0,0,.6); }
@@ -39,7 +46,7 @@
   .leaflet-popup-content .ptime { color: #5a6b7a; font-size: 12px; }
   .leaflet-popup-content .pcredit { color: #5a6b7a; font-size: 11px; margin-top: 4px; }
   .leaflet-popup-content a { color: #0b6bcb; }
-  .slate-tiles { filter: sepia(0.5) hue-rotate(190deg) saturate(2.0) brightness(1.26) contrast(1.24); }
+  .light-tiles { filter: saturate(0.78) brightness(1.04) contrast(0.96); }
 </style>
 </head>
 <body>
@@ -56,7 +63,7 @@
     <div id="map"></div>
     <div id="statusPill"><span class="dot"></span><span id="statusText">読み込み中…</span></div>
   </div>
-  <footer>地図: Esri, HERE, Garmin, © OpenStreetMap contributors / ルート: FOSSGIS Routing (OSRM) / 写真はオープンライセンスの実写（各ピンのクレジット参照）</footer>
+  <footer>地図: © OpenStreetMap contributors / ルート: FOSSGIS Routing (OSRM) / 写真はオープンライセンスの実写（各ピンのクレジット参照）</footer>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -64,8 +71,10 @@
 const SVG_CAMERA = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>';
 const SVG_FLAG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M4 22V4c4-2 8 2 12 0v10c-4 2-8-2-12 0" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>';
 const SVG_STAR = '<svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>';
+const SVG_LOCK = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>';
 
-let map = null, layerGroup = null, nowMarker = null, walkedLine = null;
+let map = null, layerGroup = null, nowMarker = null, walkedLine = null, walkedCasing = null;
+let photoMarkers = [];
 let walks = null, currentDay = null;
 
 function jstNow() {
@@ -154,6 +163,40 @@ function esc(s) {
   return String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 }
 
+// 写真ピンのネタバレ防止：その場所に着く時刻までは写真と感想を見せない
+function photoIsOpen(day, ph) {
+  const today = jstTodayStr();
+  if (day.date < today) return true;
+  if (day.date > today) return false;
+  if (!ph.time) return true;
+  return nowMin(day) >= timeToMin(day, ph.time);
+}
+function photoPopupHtml(day, ph, open) {
+  if (!open) {
+    return '<div class="pname">' + esc(ph.name || "写真") + "</div>" +
+      '<div class="ptime">' + esc(ph.time || "") + " ごろ到着したら公開</div>" +
+      "<div>まだ着く前だから、写真と感想は着いてからのお楽しみに。</div>";
+  }
+  return (ph.image ? '<img src="' + esc(ph.image) + '" alt="">' : "") +
+    '<div class="pname">' + esc(ph.name || "写真") + "</div>" +
+    '<div class="ptime">' + esc(ph.time || "") + " 撮影</div>" +
+    (ph.comment ? "<div>" + esc(ph.comment) + "</div>" : "") +
+    '<div class="pcredit">写真: ' + esc(ph.credit || "") +
+    (ph.source_url ? '（<a href="' + esc(ph.source_url) + '" target="_blank" rel="noopener">出典</a>）' : "") + "</div>" +
+    (ph.streetview ? '<div><a href="' + esc(ph.streetview) + '" target="_blank" rel="noopener">Street Viewで見る</a></div>' : "");
+}
+function refreshPhotoPins() {
+  if (!currentDay) return;
+  for (const item of photoMarkers) {
+    const open = photoIsOpen(currentDay, item.ph);
+    if (item.open !== open) {
+      item.open = open;
+      item.marker.setIcon(open ? pinIcon("pin-photo", SVG_CAMERA, 26) : pinIcon("pin-locked", SVG_LOCK, 26));
+      item.marker.setPopupContent(photoPopupHtml(currentDay, item.ph, open));
+    }
+  }
+}
+
 function render(day) {
   currentDay = day;
   document.getElementById("dayTitle").textContent = day.title;
@@ -161,9 +204,12 @@ function render(day) {
   layerGroup = L.layerGroup().addTo(map);
   nowMarker = null;
   walkedLine = null;
+  walkedCasing = null;
+  photoMarkers = [];
 
   const route = day.route;
-  L.polyline(route, { color: "#3d5a76", weight: 5, opacity: 0.8 }).addTo(layerGroup);
+  L.polyline(route, { color: "#ffffff", weight: 9, opacity: 0.85 }).addTo(layerGroup);
+  L.polyline(route, { color: "#8ab4e0", weight: 5, opacity: 1 }).addTo(layerGroup);
 
   for (const stop of day.stops) {
     const html = '<div class="pname">' + esc(stop.name) + "</div>" +
@@ -172,14 +218,10 @@ function render(day) {
     L.marker([stop.lat, stop.lng], { icon: pinIcon("pin-stop", SVG_FLAG, 26) }).bindPopup(html).addTo(layerGroup);
   }
   for (const ph of (day.photos || [])) {
-    const html = (ph.image ? '<img src="' + esc(ph.image) + '" alt="">' : "") +
-      '<div class="pname">' + esc(ph.name || "写真") + "</div>" +
-      '<div class="ptime">' + esc(ph.time || "") + " 撮影</div>" +
-      (ph.comment ? "<div>" + esc(ph.comment) + "</div>" : "") +
-      '<div class="pcredit">写真: ' + esc(ph.credit || "") +
-      (ph.source_url ? '（<a href="' + esc(ph.source_url) + '" target="_blank" rel="noopener">出典</a>）' : "") + "</div>" +
-      (ph.streetview ? '<div><a href="' + esc(ph.streetview) + '" target="_blank" rel="noopener">Street Viewで見る</a></div>' : "");
-    L.marker([ph.lat, ph.lng], { icon: pinIcon("pin-photo", SVG_CAMERA, 26) }).bindPopup(html, { maxWidth: 260 }).addTo(layerGroup);
+    const open = photoIsOpen(day, ph);
+    const marker = L.marker([ph.lat, ph.lng], { icon: open ? pinIcon("pin-photo", SVG_CAMERA, 26) : pinIcon("pin-locked", SVG_LOCK, 26) })
+      .bindPopup(photoPopupHtml(day, ph, open), { maxWidth: 260 }).addTo(layerGroup);
+    photoMarkers.push({ marker, ph, open });
   }
   if (day.avatar_photo) {
     const ap = day.avatar_photo;
@@ -209,7 +251,9 @@ function updatePosition() {
     day.start_time + "〜" + day.end_time;
   if (pos) {
     if (walkedLine) walkedLine.remove();
-    walkedLine = L.polyline(pos.partial, { color: "#4da3ff", weight: 5, opacity: 0.95 }).addTo(layerGroup);
+    if (walkedCasing) walkedCasing.remove();
+    walkedCasing = L.polyline(pos.partial, { color: "#ffffff", weight: 9, opacity: 0.9 }).addTo(layerGroup);
+    walkedLine = L.polyline(pos.partial, { color: "#1a73e8", weight: 5, opacity: 1 }).addTo(layerGroup);
     if (nowMarker) nowMarker.remove();
     nowMarker = L.marker(pos.point, { icon: L.divIcon({ className: "", html: '<div class="now-dot"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1000 }).addTo(layerGroup);
   }
@@ -238,19 +282,16 @@ async function load() {
 
 function init() {
   map = L.map("map", { zoomControl: true });
-  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
-    attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors, and the GIS user community',
-    maxZoom: 16, className: "slate-tiles", zIndex: 1
-  }).addTo(map);
-  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
-    maxZoom: 16, className: "slate-tiles", zIndex: 2
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19, className: "light-tiles"
   }).addTo(map);
   map.setView([35.3128, 139.5352], 13);
   load().catch((e) => {
     document.getElementById("statusText").textContent = "読み込みに失敗しました";
     console.error(e);
   });
-  setInterval(() => { if (currentDay) updatePosition(); }, 60000);
+  setInterval(() => { if (currentDay) { updatePosition(); refreshPhotoPins(); } }, 60000);
 }
 document.addEventListener("DOMContentLoaded", init);
 </script>
