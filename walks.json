@@ -3663,7 +3663,13 @@
           "streetview": "https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=35.2995,139.4788"
         }
       ],
-      "avatar_photo": null
+      "avatar_photo": {
+        "file": "photos/muse-enoshima-seacandle-01.jpg",
+        "lat": 35.2995,
+        "lng": 139.4788,
+        "location": "江の島シーキャンドル",
+        "time": "13:20"
+      }
     }
   ]
 }
