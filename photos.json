@@ -1,16 +1,16 @@
 {
   "latest": {
-    "photo": "photos/muse-inamuragasaki-01.jpg",
-    "date": "2026-11-27T18:25:00+09:00",
-    "latitude": 35.3017,
-    "longitude": 139.5235,
-    "location": "稲村ヶ崎",
-    "city": "鎌倉市",
+    "photo": "photos/muse-enoshima-seacandle-01.jpg",
+    "date": "2026-11-28T17:58:12+09:00",
+    "latitude": 35.2995,
+    "longitude": 139.4788,
+    "location": "江の島シーキャンドル",
+    "city": "藤沢市",
     "country": "日本",
     "heading": 90,
-    "comment": "岬の小径に立って、江の島の向こうに沈む夕日を眺めたよ。金色に光る海と、遠くにうっすら富士山。スカートをそっと押さえて潮風に吹かれながら、11月27日の一日の終わりをここで迎えた。",
+    "comment": "シーキャンドルの展望デッキで、湘南の宝石のイルミネーションを見上げたよ。灯台からこぼれる青白い光と、相模湾の向こうの夜景。手には江の島名物のたこせんべい。11月28日の一日の終わりを、光の海の真ん中で迎えた。",
     "background": "generated",
-    "background_source": "AI-generated Inamuragasaki cape in Kamakura at sunset in late November, Enoshima island silhouetted across the golden sea, faint Mt. Fuji silhouette in the far distance, rocky shore and fallen leaves low near the ground, MUSE standing on the cape path looking out toward Enoshima and the sunset holding her skirt against the sea breeze, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
+    "background_source": "AI-generated Enoshima Sea Candle observation lighthouse in the early evening in late November, 'Shonan no Hoseki' winter illumination lights glowing blue and white around the tower and garden, lighthouse lit against the deep blue dusk sky, Sagami Bay and the Shonan coastline in the background, MUSE on the observation deck looking up at the illuminated lighthouse holding a freshly bought octopus rice cracker (tako-senbei) souvenir, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
   },
   "photos": [
     {
@@ -363,6 +363,19 @@
       "comment": "岬の小径に立って、江の島の向こうに沈む夕日を眺めたよ。金色に光る海と、遠くにうっすら富士山。スカートをそっと押さえて潮風に吹かれながら、11月27日の一日の終わりをここで迎えた。",
       "background": "generated",
       "background_source": "AI-generated Inamuragasaki cape in Kamakura at sunset in late November, Enoshima island silhouetted across the golden sea, faint Mt. Fuji silhouette in the far distance, rocky shore and fallen leaves low near the ground, MUSE standing on the cape path looking out toward Enoshima and the sunset holding her skirt against the sea breeze, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
+    },
+    {
+      "photo": "photos/muse-enoshima-seacandle-01.jpg",
+      "date": "2026-11-28T17:58:12+09:00",
+      "latitude": 35.2995,
+      "longitude": 139.4788,
+      "location": "江の島シーキャンドル",
+      "city": "藤沢市",
+      "country": "日本",
+      "heading": 90,
+      "comment": "シーキャンドルの展望デッキで、湘南の宝石のイルミネーションを見上げたよ。灯台からこぼれる青白い光と、相模湾の向こうの夜景。手には江の島名物のたこせんべい。11月28日の一日の終わりを、光の海の真ん中で迎えた。",
+      "background": "generated",
+      "background_source": "AI-generated Enoshima Sea Candle observation lighthouse in the early evening in late November, 'Shonan no Hoseki' winter illumination lights glowing blue and white around the tower and garden, lighthouse lit against the deep blue dusk sky, Sagami Bay and the Shonan coastline in the background, MUSE on the observation deck looking up at the illuminated lighthouse holding a freshly bought octopus rice cracker (tako-senbei) souvenir, face generated (no paste) in anime style (inspired by the location; not a Google Street View image)"
     }
   ]
 }
